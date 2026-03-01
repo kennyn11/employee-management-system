@@ -5,7 +5,7 @@ class Employee {
         this.department = department;
     }
     describe () {
-        return `{this.name} currently works in the ${this.department} department.`;
+        return `${this.name} works in the ${this.department} department.`;
 
     }
 }
@@ -17,8 +17,8 @@ class Manager extends Employee {
         this.teamSize = teamSize;
     }
 describe() {
-    return `${this.name} is a manager for this ${this.department} department including
-    ${this.teamSize}`;
+    return `${this.name} is a manager for this ${this.department} department with
+    ${this.teamSize} staff members`;
 }
 }
 
@@ -29,3 +29,28 @@ const emp3 = new Employee ("Sophia", "Seafood",)
 const man1 = new Manager ("Morgan", "Deli", 25)
 const man2 = new Manager ("James", "Baker", 15)
 const man3 = new Manager ("Pubert", "Customer Service", 50)
+
+// Employee List //
+class Company {
+    constructor() {
+        this.employees = [];
+    }
+    addEmployee(employee){
+        this.employees.push(employee);
+    }
+    listEmployees() {
+        this.employees.forEach(employee => {
+            console.log(employee.describe())
+        });
+    }
+}
+
+// Company //
+const myCompany = new Company();
+myCompany.addEmployee(emp1);
+myCompany.addEmployee(emp2);
+myCompany.addEmployee(emp3);
+myCompany.addEmployee(man1);
+myCompany.addEmployee(man2);
+myCompany.addEmployee(man3);
+myCompany.listEmployees();
